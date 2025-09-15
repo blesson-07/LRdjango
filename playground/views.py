@@ -5,5 +5,9 @@ from django.http import HttpResponse
 
 x=1
 y=2
-def hello(request):
+def chinadan(request):
     return render(request,'hello.html',{'dic':'Paramashivam'})
+    
+
+def bookspirit(request):
+    return render(request,'playground/book.html')    
