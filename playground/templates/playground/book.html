@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chinadan Spirit Syndicate — Home</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Chinadan Spirit Syndicate — limited small-batch selections, cellar archives, and private tastings.">
+  <style>
+    :root{
+      --bg:#0b0d0f;
+      --panel:#121519;
+      --muted:#9aa4af;
+      --text:#e9edf2;
+      --brand:#caa76a;      /* gold */
+      --brand-2:#1f6f5a;    /* deep green */
+      --ring: color-mix(in oklab, var(--brand) 45%, #ffffff 55%);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 14px;
+    }
+    *{box-sizing:border-box}
+    html,body{background:var(--bg);color:var(--text);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; line-height:1.5}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(11,13,15,.9), rgba(11,13,15,.65));backdrop-filter: blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:38px;height:38px;border-radius:50%;
+      background: radial-gradient(120% 120% at 30% 30%, var(--brand) 0%, #8b6b36 40%, #40351f 70%, #16140f 100%);
+      box-shadow: inset 0 0 10px rgba(0,0,0,.45), 0 6px 18px rgba(202,167,106,.18);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .title{font-weight:800;letter-spacing:.6px}
+    nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+    nav a{color:#d7dde5;opacity:.9}
+    nav a:hover{opacity:1}
+    .cta{
+      background:var(--brand);color:#171717;padding:10px 16px;border-radius:999px;font-weight:800;letter-spacing:.2px;border:1px solid #8e773f;box-shadow: 0 6px 18px rgba(202,167,106,.25)
+    }
+    .cta.secondary{background:transparent;color:var(--brand);border:1px solid var(--brand)}
+    /* Hero */
+    .hero{position:relative;isolation:isolate}
+    .hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;padding:80px 0}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(202,167,106,.12);color:var(--brand);border:1px solid rgba(202,167,106,.3);border-radius:999px;padding:6px 10px;font-weight:700;font-size:12px;letter-spacing:.3px}
+    .h1{font-size: clamp(32px, 5vw, 56px);line-height:1.1;margin:14px 0 10px}
+    .lead{color:var(--muted);font-size:18px;max-width:58ch}
+    .hero-card{
+      background:linear-gradient(180deg, rgba(31,111,90,.15), rgba(18,21,25,.95));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      padding:20px;
+      box-shadow: var(--shadow);
+    }
+    .stat{
+      display:flex;align-items:baseline;justify-content:space-between;
+      padding:12px 14px;border:1px solid rgba(255,255,255,.06);border-radius:12px;background:rgba(255,255,255,.02);margin-top:10px
+    }
+    .stat b{font-size:20px;color:#fff}
+    .glow{
+      position:absolute;inset: -20% -10% auto auto;translate: 0 -20%;
+      width:520px;height:520px;border-radius:50%;
+      background: radial-gradient(closest-side, rgba(31,111,90,.45), rgba(31,111,90,0) 70%);
+      filter: blur(30px);z-index:-1;opacity:.6
+    }
+    /* Sections */
+    section{padding:56px 0;border-top:1px solid rgba(255,255,255,.06)}
+    h2{font-size: clamp(22px,3.2vw,32px);margin:0 0 12px}
+    .muted{color:var(--muted)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px;box-shadow: var(--shadow)
+    }
+    .thumb{
+      aspect-ratio: 16/10;border-radius:12px;overflow:hidden;
+      background:linear-gradient(135deg,#2a2f37,#181c22);
+      display:flex;align-items:center;justify-content:center;
+      color:#a7b1bc;font-weight:700;letter-spacing:.4px
+    }
+    .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .pillar{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px}
+    .kicker{font-size:12px;color:var(--brand);font-weight:800;letter-spacing:.28px;margin-bottom:4px;text-transform:uppercase}
+    .list{margin:10px 0 0 0;padding:0;list-style:none}
+    .list li{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+    .list li:last-child{border-bottom:none}
+    /* Footer */
+    footer{padding:28px 0;color:#94a0ac}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .social{display:flex;gap:12px}
+    .chip{border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:6px 10px}
+    /* Utilities */
+    .row{display:flex;gap:12px;flex-wrap:wrap}
+    .spacer{height:10px}
+    hr{border:none;border-top:1px solid rgba(255,255,255,.06);margin:18px 0}
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-inner{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .pillars{grid-template-columns:1fr 1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 620px){
+      nav ul{display:none}
+      .grid-3{grid-template-columns:1fr}
+      .pillars{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="title">Chinadan Spirit Syndicate</div>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#labels">Our Labels</a></li>
+          <li><a href="#membership">Membership</a></li>
+          <li><a href="#contact" class="cta secondary">Contact</a></li>
+        </ul>
+        <a class="cta" href="#membership">Join Syndicate</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div>
+          <span class="badge">Established 2012 · Limited Release</span>
+          <h1 class="h1">Forged in Craft. Curated in Confidence.</h1>
+          <p class="lead">Chinadan is a private syndicate dedicated to small‑batch spirits, cellar archives, and invitation‑only tastings — where provenance meets precision and every bottle tells a story. </p>
+          <div class="spacer"></div>
+          <div class="row">
+            <a class="cta" href="#membership">Apply for Membership</a>
+            <a class="cta secondary" href="#labels">Explore Labels</a>
+          </div>
+          <div class="spacer"></div>
+          <div class="row" aria-hidden="true">
+            <div class="chip">Small Batch</div>
+            <div class="chip">Single Origin</div>
+            <div class="chip">Barrel Select</div>
+            <div class="chip">Private Cask</div>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Syndicate Stats">
+          <div class="kicker">By the numbers</div>
+          <div class="stat"><span>Annual releases</span><b>12</b></div>
+          <div class="stat"><span>Member allocation</span><b>3–9 bottles</b></div>
+          <div class="stat"><span>Barrel age range</span><b>4–18 yrs</b></div>
+          <div class="stat"><span>Archive vintages</span><b>60+</b></div>
+          <hr>
+          <p class="muted" style="margin:0">Membership is limited. Submissions are reviewed quarterly.</p>
+        </aside>
+      </div>
+      <div class="glow"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <h2>About Chinadan</h2>
+        <p class="muted">Born from a collective of distillers and collectors, Chinadan pursues terroir‑driven spirits with uncompromising standards, from grain selection to barrel finish. Every release is authenticated, documented, and cellared for profile maturity. </p>
+      </div>
+    </section>
+
+    <!-- LABELS -->
+    <section id="labels">
+      <div class="wrap">
+        <h2>Our Labels</h2>
+        <p class="muted">Signature houses within the syndicate highlight distinct styles — from classic heritage expressions to experimental micro‑casks finished with rare woods. </p>
+        <div class="grid-3" style="margin-top:14px">
+          <article class="card">
+            <div class="thumb">Chinadan Classic</div>
+            <h3 style="margin:12px 0 6px">Classic</h3>
+            <p class="muted">Flagship 750ml, balanced profile with toasted oak, candied citrus, and long mineral finish. </p>
+            <div class="row"><a href="#" class="">View release notes →</a></div>
+          </article>
+          <article class="card">
+            <div class="thumb">Reserve</div>
+            <h3 style="margin:12px 0 6px">Reserve</h3>
+            <p class="muted">Single‑barrel selections with extended aging and cask‑strength integrity for purists. </p>
+            <div class="row"><a href="#" class="">Explore allocations →</a></div>
+          </article>
+          <article class="card">
+            <div class="thumb">Small Batch</div>
+            <h3 style="margin:12px 0 6px">Small Batch</h3>
+            <p class="muted">Limited micro‑runs finished in experimental woods: acacia, mizunara, amburana, and more. </p>
+            <div class="row"><a href="#" class="">See tasting schedule →</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILLARS -->
+    <section>
+      <div class="wrap">
+        <h2>Our Pillars</h2>
+        <p class="muted">Everything we bottle upholds four non‑negotiables that define quality, longevity, and truth in spirit. </p>
+        <div class="pillars" style="margin-top:14px">
+          <div class="pillar">
+            <div class="kicker">Provenance</div>
+            <p class="muted">Source transparency from field to barrel with audited chain‑of‑custody records. </p>
+          </div>
+          <div class="pillar">
+            <div class="kicker">Craft</div>
+            <p class="muted">Traditional distillation, slow cuts, and patient maturation to preserve character. </p>
+          </div>
+          <div class="pillar">
+            <div class="kicker">Integrity</div>
+            <p class="muted">No flavoring, no shortcuts — only honest aging, blending, and finishing. </p>
+          </div>
+          <div class="pillar">
+            <div class="kicker">Stewardship</div>
+            <p class="muted">Sustainable sourcing, responsible allocations, and archival care for future palates. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMBERSHIP -->
+    <section id="membership">
+      <div class="wrap">
+        <h2>Membership</h2>
+        <p class="muted">Join the waitlist to access allocations, members‑only tastings, and early archive releases. Applicants are reviewed quarterly. </p>
+        <div class="card" style="margin-top:14px">
+          <form action="#" method="post" onsubmit="event.preventDefault(); this.reset(); alert('Thank you — your interest has been recorded.');">
+            <div class="row">
+              <div style="flex:1;min-width:220px">
+                <label for="name">Full name</label>
+                <input id="name" name="name" required placeholder="Jordan Rao" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:#0f1216;color:#e9edf2;outline:none" />
+              </div>
+              <div style="flex:1;min-width:220px">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required placeholder="jordan@example.com" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:#0f1216;color:#e9edf2;outline:none" />
+              </div>
+            </div>
+            <div class="spacer"></div>
+            <div class="row">
+              <div style="flex:1;min-width:220px">
+                <label for="city">City</label>
+                <input id="city" name="city" placeholder="Bengaluru, IN" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:#0f1216;color:#e9edf2;outline:none" />
+              </div>
+              <div style="flex:1;min-width:220px">
+                <label for="interest">Primary interest</label>
+                <select id="interest" name="interest" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:#0f1216;color:#e9edf2;outline:none">
+                  <option value="" selected disabled>Select</option>
+                  <option>Classic</option>
+                  <option>Reserve</option>
+                  <option>Small Batch</option>
+                  <option>Archive</option>
+                </select>
+              </div>
+            </div>
+            <div class="spacer"></div>
+            <label style="display:block;margin-bottom:6px">Notes</label>
+            <textarea rows="4" placeholder="Tell us about your cellar and preferences…" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:#0f1216;color:#e9edf2;outline:none"></textarea>
+            <div class="spacer"></div>
+            <div class="row" style="justify-content:flex-end">
+              <button class="cta secondary" type="reset">Clear</button>
+              <button class="cta" type="submit">Request Invite</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <h2>Contact</h2>
+        <p class="muted">For press, collaborations, or trade tastings, reach out via email. We respond within five business days. </p>
+        <div class="row" style="margin-top:12px">
+          <div class="card" style="flex:1;min-width:260px">
+            <div class="kicker">Email</div>
+            <p><a href="mailto:syndicate@chinadan.co">syndicate@chinadan.co</a></p>
+          </div>
+          <div class="card" style="flex:1;min-width:260px">
+            <div class="kicker">Head Office</div>
+            <p class="muted">Chinadan House, 14 Cask Lane, Bengaluru 560001</p>
+          </div>
+          <div class="card" style="flex:1;min-width:260px">
+            <div class="kicker">Social</div>
+            <p class="social">
+              <span class="chip">IG</span>
+              <span class="chip">X</span>
+              <span class="chip">YT</span>
+              <span class="chip">IN</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <p>© <span id="y"></span> Chinadan Spirit Syndicate • All rights reserved.</p>
+      <p class="muted" style="text-align:right">Please enjoy responsibly. Members must be of legal drinking age in their jurisdiction.</p>
+    </div>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
