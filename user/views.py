@@ -10,4 +10,4 @@ def chinadan(request):
     
 
 def bookspirit(request):
-    return render(request,'playground/book.html')    
+    return render(request,'user/book.html')    
