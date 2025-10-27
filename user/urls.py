@@ -7,6 +7,7 @@ from . import views
 urlpatterns=[
     path("",views.chinadan),
     path('notes/',views.getnote),
+    path("notes/<int:pk>",views.user_details),
     path("notes/seeall/",views.getnotes),
     path("notes/create",views.createnote),
     path('hello/',views.bookspirit),
